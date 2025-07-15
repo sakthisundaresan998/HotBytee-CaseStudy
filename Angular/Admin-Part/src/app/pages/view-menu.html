@@ -1,0 +1,24 @@
+<div class="menu-container">
+  <h2>📋 All Menus</h2>
+
+  <div *ngIf="menuItems.length === 0">No menu items available.</div>
+
+  <table *ngIf="menuItems.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Restaurant ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of menuItems">
+        <td>{{ item.name }}</td>
+        <td>{{ item.category }}</td>
+        <td>₹{{ item.price }}</td>
+        <td>{{ item.restaurantId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

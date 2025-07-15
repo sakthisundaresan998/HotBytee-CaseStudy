@@ -1,0 +1,59 @@
+.navbar {
+  background-color: #fff7ed; // light peach background
+  color: #7c3e1d; // warm brown for text
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #fed7aa;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .brand {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fb923c; // orange brand color
+    text-decoration: none;
+
+    &:hover {
+      color: #ea580c; // darker orange on hover
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 18px;
+
+    a,
+    button {
+      color: #4b5563;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        background-color: #ffedd5; // soft orange hover
+        color: #ea580c;
+      }
+    }
+
+    button {
+      background-color: #f97316; // soft orange
+      color: white;
+
+      &:hover {
+        background-color: #ea580c;
+      }
+    }
+  }
+}

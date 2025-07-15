@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="container">
+    <a class="brand" routerLink="/">HotBytee Admin</a>
+
+    <div class="nav-links">
+      <a routerLink="/admin-login" *ngIf="!isLoggedIn">Login</a>
+
+      <ng-container *ngIf="isLoggedIn">
+        <a routerLink="/restaurants">Manage Restaurants</a>
+        <a routerLink="/menus">View Menus</a>
+        <a routerLink="/orders">View Orders</a>
+        <button (click)="logout()">Logout</button>
+      </ng-container>
+    </div>
+  </div>
+</nav>
