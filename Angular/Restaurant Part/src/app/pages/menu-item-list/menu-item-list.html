@@ -1,0 +1,30 @@
+<div class="menu-list-container">
+  <h2>🍴 Your Menu</h2>
+
+  <!-- Add New Item Button -->
+  <div class="actions mb-3">
+    <button class="btn primary" (click)="addMenuItem()">➕ Add New Item</button>
+  </div>
+
+  <!-- No items -->
+  <div *ngIf="items.length === 0" class="empty-message">
+    <p>No menu items available. Start by adding one!</p>
+  </div>
+
+  <!-- Menu Items Grid -->
+  <div class="menu-grid" *ngIf="items.length > 0">
+    <div class="menu-card" *ngFor="let item of items">
+      <div class="card-content">
+        <h4>{{ item.name }}</h4>
+        <p><strong>Category:</strong> {{ item.category }}</p>
+        <p><strong>Price:</strong> ₹{{ item.price }}</p>
+        <p><strong>Type:</strong> {{ item.dietaryInfo }}</p>
+        <p><strong>Description:</strong> {{ item.description }}</p>
+      </div>
+      <div class="card-actions">
+        <button class="btn small edit" (click)="editItem(item.menuItemId!)">✏️ Edit</button>
+        <button class="btn small delete" (click)="deleteItem(item.menuItemId!)">🗑️ Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

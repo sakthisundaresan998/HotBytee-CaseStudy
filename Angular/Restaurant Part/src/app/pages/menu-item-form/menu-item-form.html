@@ -1,0 +1,56 @@
+<div class="form-container">
+  <h2>{{ isEdit ? '✏️ Edit' : '➕ Add' }} Menu Item</h2>
+
+  <form (ngSubmit)="save()" #menuForm="ngForm" class="form-grid">
+    <label>
+      Name:
+      <input [(ngModel)]="form.name" name="name" required />
+    </label>
+
+    <label>
+      Category:
+      <input [(ngModel)]="form.category" name="category" required />
+    </label>
+
+    <label>
+      Price (₹):
+      <input type="number" [(ngModel)]="form.price" name="price" required />
+    </label>
+
+    <label>
+      Dietary Info:
+      <select [(ngModel)]="form.dietaryInfo" name="dietaryInfo" required>
+        <option value="">Select</option>
+        <option value="Veg">Veg</option>
+        <option value="Non-Veg">Non-Veg</option>
+      </select>
+    </label>
+
+    <label>
+      Description:
+      <textarea [(ngModel)]="form.description" name="description" required></textarea>
+    </label>
+
+    <label>
+      Taste Info:
+      <input [(ngModel)]="form.tasteInfo" name="tasteInfo" />
+    </label>
+
+    <label>
+      Nutritional Info:
+      <input [(ngModel)]="form.nutritionalInfo" name="nutritionalInfo" />
+    </label>
+
+    <label>
+      Image URL:
+      <input [(ngModel)]="form.imageUrl" name="imageUrl" />
+    </label>
+
+    <label>
+      Is Available:
+      <input type="checkbox" [(ngModel)]="form.isAvailable" name="isAvailable" />
+    </label>
+
+    <button class="btn submit-btn" type="submit">💾 Save</button>
+  </form>
+</div>

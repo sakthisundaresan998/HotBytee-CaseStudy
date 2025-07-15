@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="container">
+    <a class="brand" [routerLink]="isLoggedIn ? '/dashboard' : '/restaurant-login'">
+  HotBytee Restaurant
+</a>
+
+
+    <div class="nav-links">
+      <ng-container *ngIf="!isLoggedIn">
+        <a routerLink="/restaurant-login">Login</a>
+        <a routerLink="/restaurant-register">Register</a>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn">
+        <a routerLink="/menu-items">Manage Menu</a>
+        <a routerLink="/orders">View Orders</a>
+        <button (click)="logout()">Logout</button>
+      </ng-container>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <router-outlet />
+</main>

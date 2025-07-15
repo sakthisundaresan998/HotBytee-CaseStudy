@@ -1,0 +1,59 @@
+.navbar {
+  background: #fff7f0; // 🌤️ soft peach background
+  padding: 16px 32px;
+  color: #3e3e3e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  .container {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ef6c57; // 🍑 warm salmon
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #db4c3f;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 18px;
+
+    a {
+      color: #3e3e3e;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #ffe7db; // 🔸 soft highlight
+      }
+    }
+
+    button {
+      background-color: #ef6c57; // 🍑 primary
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #db4c3f;
+      }
+    }
+  }
+}

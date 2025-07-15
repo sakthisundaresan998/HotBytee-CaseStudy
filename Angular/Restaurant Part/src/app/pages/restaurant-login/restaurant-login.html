@@ -1,0 +1,32 @@
+<div class="login-container">
+  <h2>🔐 Restaurant Login</h2>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm" class="login-form">
+    <input
+      type="email"
+      [(ngModel)]="form.contactEmail"
+      name="contactEmail"
+      placeholder="📧 Email address"
+      required
+    />
+
+    <input
+      type="password"
+      [(ngModel)]="form.password"
+      name="password"
+      placeholder="🔒 Password"
+      required
+    />
+
+    <button type="submit">Login</button>
+
+    <p class="register-text">
+      Don’t have an account?
+      <a routerLink="/restaurant-register">Register here</a>
+    </p>
+
+    <div *ngIf="errorMessage" class="error-msg">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

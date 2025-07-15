@@ -1,0 +1,54 @@
+<div class="register-container">
+  <h2>🍽️ Restaurant Register</h2>
+
+  <form (ngSubmit)="register()" #registerForm="ngForm">
+    <input
+      type="text"
+      [(ngModel)]="form.name"
+      name="name"
+      placeholder="🍴 Restaurant Name"
+      required
+    />
+    <input
+      type="text"
+      [(ngModel)]="form.address"
+      name="address"
+      placeholder="📍 Address"
+      required
+    />
+    <input
+      type="email"
+      [(ngModel)]="form.contactEmail"
+      name="contactEmail"
+      placeholder="📧 Email"
+      required
+    />
+    <input
+      type="text"
+      [(ngModel)]="form.contactPhone"
+      name="contactPhone"
+      placeholder="📞 Phone"
+      required
+    />
+    <input
+      type="text"
+      [(ngModel)]="form.description"
+      name="description"
+      placeholder="📝 Description (Optional)"
+    />
+    <input
+      type="password"
+      [(ngModel)]="form.password"
+      name="password"
+      placeholder="🔒 Password"
+      required
+    />
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+    <p class="link">
+      Already have an account?
+      <a routerLink="/restaurant-login">Login here</a>
+    </p>
+  </form>
+</div>
