@@ -1,0 +1,72 @@
+﻿@model List<HotBytee.MVC.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Your Cart</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Your cart is empty.
+    </div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>₹@item.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>₹@(item.Price * item.Quantity)</td>
+                    <td>
+                        <form asp-action="DecreaseQuantity" method="post" style="display:inline;">
+                            <input type="hidden" name="menuItemId" value="@item.MenuItemId" />
+                            <button class="btn btn-outline-danger btn-sm">-</button>
+                        </form>
+
+                        <span class="mx-2">@item.Quantity</span>
+
+                        <form asp-action="IncreaseQuantity" method="post" style="display:inline;">
+                            <input type="hidden" name="menuItemId" value="@item.MenuItemId" />
+                            <button class="btn btn-outline-success btn-sm">+</button>
+                        </form>
+
+                        <form asp-action="RemoveFromCart" method="post" style="display:inline;">
+                            <input type="hidden" name="menuItemId" value="@item.MenuItemId" />
+                            <button type="submit" class="btn btn-sm btn-danger" style="margin-left:10px;">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                <td colspan="2"><strong>₹@Model.Sum(i => i.Price * i.Quantity)</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <form asp-action="PlaceOrder" method="post">
+        <div class="mb-3">
+            <label for="shippingAddress" class="form-label">Shipping Address</label>
+            <textarea class="form-control" id="shippingAddress" name="shippingAddress" rows="2" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Place Order</button>
+    </form>
+}

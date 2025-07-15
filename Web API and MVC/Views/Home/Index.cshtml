@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">Welcome to HotBytee 🍽️</h1>
+    <p class="lead">Order your favorite food online, fresh and fast!</p>
+
+    <div class="mt-4">
+        <a asp-controller="Menu" asp-action="Index" class="btn btn-primary btn-lg mx-2">
+            View Menu
+        </a>
+
+        @if (Context.Session.GetInt32("UserId") != null)
+        {
+            <a asp-controller="Cart" asp-action="OrderHistory" class="btn btn-outline-dark btn-lg mx-2">
+                Order History
+            </a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-secondary btn-lg mx-2">
+                Login to Order
+            </a>
+        }
+    </div>
+
+    <div class="mt-5">
+        <img src="https://cdn-icons-png.flaticon.com/512/2838/2838912.png" width="150" alt="HotBytee" />
+    </div>
+</div>
